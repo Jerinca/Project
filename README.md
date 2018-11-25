@@ -1,7 +1,7 @@
-Jerinca Vreugdenhil
+Jerinca Vreugdenhil. 
 Studentnumber: 12405965. 
 
-### Project Stock Portfolio. 
+# Project Stock Portfolio. 
 ## Problem statement. 
 
 Investing in stocks can be scary. Because you do not know what your chances are. 
@@ -15,7 +15,7 @@ Furthermore, it is important to keep track of your stocks. Therefore it would be
 
 To make sure an investors picks the stock he wants to trade in he should be able to see a detailed and statistic overview of a stock that he is looking for. That could be the sharp ratio. The sharp ratio uses the standard deviation of a stock to calculate the volatility of a stock.
 
-# visual sketch. 
+### visual sketch. 
 
 The first page an Investor is entering is going to be the homepage. On that homepage the investor you be able to go to different pages. 
 By inserting a stock symbol and see an overview of more complex statistics of the stock. 
@@ -24,26 +24,26 @@ Also an investor should be able to click on a button to go to the next page to c
 
 There should be an information page as well, were you can find what the website is showing you and why.
 
-# main features. 
+### main features. 
 
 MVP
 See an overview of the risk per stock. 
 Create a portfolio with different stock and show the result in a pie chart.
 
-OPTIONAL
+### OPTIONAL
 Further visualisations for stock characteristics.
 
 
 ## Prerequisites. 
 
-# data sources. 
+### data sources. 
 YAHOO
 
-# external components. 
+### external components. 
 To be agreed
 
-# review of similar or related visualizations. 
+### review of similar or related visualizations. 
 When you would visit https://www.portfoliovisualizer.com/examples, you see a few examples of how a stock is being presented. In my opinion this can be done better. 
 
-# Identify the hardest parts. 
+### Identify the hardest parts. 
 Creating a portfolio. It contains different stocks, with different data. They need to be combined. That can be hard. Furthermore, the mathematics behind this can be a little complex. But once it is done in a constructive way, it can becomen very clear. 
