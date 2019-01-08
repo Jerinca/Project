@@ -28,7 +28,7 @@ There should be an information page as well, were you can find what the website 
 
 MVP
 See an overview of the risk per stock. 
-Create a portfolio with different stock and show the result in a pie chart.
+Create a portfolio with different stocks and show the weight of every stock in that portfolio.(refresh when logging in)
 
 ### OPTIONAL
 Further visualisations for stock characteristics.
@@ -38,6 +38,8 @@ Further visualisations for stock characteristics.
 
 ### data sources. 
 YAHOO
+https://pypi.org/project/yahoo-finance/
+https://www.kaggle.com/camnugent/sandp500
 
 ### external components. 
 To be agreed
