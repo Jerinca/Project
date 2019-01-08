@@ -1,11 +1,11 @@
 Jerinca Vreugdenhil. 
 Studentnumber: 12405965
 
-## Design Document
+# Design Document
 
-* a list of data sources if you will get data from an external source, including information on how your are going to filter and transform the data for your project
-
-# Data Sources
+<!-- * a list of data sources if you will get data from an external source, including information on how your are going to filter and transform the data for your project
+ -->
+## Data Sources
 
 Had a closer look on how to get to real time data. When I would use kaggle dataset, it is 5 year historical data. But I want also the real time information about stocks. 
 
@@ -15,8 +15,10 @@ That is working now I have got a new API key through ALPHA VANTAGE, where you ca
 
 You can get either a compact output (the latest 100 data points). But you can also get the full-length time series of up to 20 years of historical data. The "compact" option is recommended if you would like to reduce the data size of each API call. 
 
-* a diagram with an overview of the technical components of your app (visualizations, scraper etc etc)
-as well as descriptions of each of the components and what you need to implement these
+<!-- * a diagram with an overview of the technical components of your app (visualizations, scraper etc etc)
+as well as descriptions of each of the components and what you need to implement these -->
+
+## Diagram
 
 The main thing is that the user should be able to create a portfolio from stocks and follow the portfolio growth from that particular portfolio. 
 
@@ -27,9 +29,11 @@ The main thing is that the user should be able to create a portfolio from stocks
 
 The idea next to that is to create a page where a user can see the stock information about a stock of the past +- 20 years in a graph. The users should be able to insert a ticker symbol. 
 
+## Sketch
 
 
+<!-- * a list of APIs or D3 plugins that you will be using to provide functionality in your app -->
+
+## Libaries, API's & plugins
 
 
-
-* a list of APIs or D3 plugins that you will be using to provide functionality in your app
