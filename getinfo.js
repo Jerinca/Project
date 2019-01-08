@@ -1,7 +1,7 @@
 // Student:       Jerinca vreugdenhil
 // Studentnumber: 12405965
 
-import jQuery
+// import jQuery
 
 // This javascript file loads in data from an API
 
@@ -43,7 +43,7 @@ Promise.all(requests).then(function(response) {
   mydata = response;
 
   // transform into better format
-  console.log(mydataFormat)
+  console.log(mydata)
 
 }).catch(function(e){
     throw(e);
