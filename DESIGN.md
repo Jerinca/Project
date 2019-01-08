@@ -30,6 +30,10 @@ The main thing is that the user should be able to create a portfolio from stocks
 The idea next to that is to create a page where a user can see the stock information about a stock of the past +- 20 years in a graph. The users should be able to insert a ticker symbol. 
 
 ## Sketch
+
+<img width="1021" alt="schermafbeelding 2019-01-08 om 16 24 38" src="https://user-images.githubusercontent.com/44025022/50840221-4d881f00-1362-11e9-8c09-daa0fb3bcaea.png">
+<img width="988" alt="schermafbeelding 2019-01-08 om 16 24 48" src="https://user-images.githubusercontent.com/44025022/50840223-4d881f00-1362-11e9-990e-0085c7f99aec.png">
+<img width="940" alt="schermafbeelding 2019-01-08 om 16 25 05" src="https://user-images.githubusercontent.com/44025022/50840301-71e3fb80-1362-11e9-82d7-6f51edcf4585.png">
 [Documentscans.pdf](https://github.com/Jerinca/Project/files/2737320/Documentscans.pdf)
 
 
