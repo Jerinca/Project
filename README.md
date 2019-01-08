@@ -37,9 +37,9 @@ Further visualisations for stock characteristics.
 ## Prerequisites. 
 
 ### data sources. 
-YAHOO
-https://pypi.org/project/yahoo-finance/
-https://www.kaggle.com/camnugent/sandp500
+YAHOO \
+https://pypi.org/project/yahoo-finance/ \
+https://www.kaggle.com/camnugent/sandp500 \
 
 ### external components. 
 To be agreed
