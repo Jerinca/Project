@@ -30,6 +30,8 @@ The main thing is that the user should be able to create a portfolio from stocks
 The idea next to that is to create a page where a user can see the stock information about a stock of the past +- 20 years in a graph. The users should be able to insert a ticker symbol. 
 
 ## Sketch
+[Documentscans.pdf](https://github.com/Jerinca/Project/files/2737320/Documentscans.pdf)
+
 
 
 <!-- * a list of APIs or D3 plugins that you will be using to provide functionality in your app -->
