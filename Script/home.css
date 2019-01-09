@@ -1,0 +1,25 @@
+/*
+** Student: 		Jerinca vreugdenhil
+** Studentnumber:	12405965
+
+** This is the stylesheet for our homepage
+*/
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.jumbotron {
+    text-align: center;
+	padding-top: 10px;
+}
+
+.link {
+	color: black;
+}
+.link:visited {
+    color: black;
+	text-decoration: none;
+}
+

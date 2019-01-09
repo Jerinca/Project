@@ -5,16 +5,7 @@
 
 // This javascript file loads in data from an API
 
-// header and paragrapgh
-    d3.select("body")
-      .append("h1")
-        .text("Creating a Portfolio");
-    d3.select("body")
-      .append("h2")
-        .text("Jerinca Vreugdenhil 12405965");
-    d3.select("body")
-      .append("p")
-        .text("Not sure what I am going to write here");
+
 
 
 // when window is being unloaded show
