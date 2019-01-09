@@ -41,6 +41,7 @@ YAHOO \
 https://pypi.org/project/yahoo-finance/ \
 https://www.kaggle.com/camnugent/sandp500 \
 
+
 ### external components. 
 To be agreed
 
