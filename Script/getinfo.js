@@ -1,9 +1,9 @@
 // Student:       Jerinca vreugdenhil
 // Studentnumber: 12405965
 
-// import jQuery
 
 // This javascript file loads in data from an API
+// And shows a graph about the data
 
 
 
@@ -11,8 +11,7 @@
 // when window is being unloaded show
 window.onload = function() {
 
-// // datasets
-
+// get dataset
 
 
 stringOne = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="
@@ -31,10 +30,13 @@ Promise.all(requests).then(function(response) {
 
   // transform into better format
   console.log(mydata)
+  
 
 }).catch(function(e){
     throw(e);
 });
 
 };
+
+
 
