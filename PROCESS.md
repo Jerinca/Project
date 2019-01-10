@@ -19,3 +19,6 @@ Therefor, I made the desicion to make a graph about historical stock prices if t
 
 After that I am going to chech what I can do for the portfoliopart.
 
+# day 4
+Made a search bar and a grid. Still need to figure out how to implement a click on feature.
+
