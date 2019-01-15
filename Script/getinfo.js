@@ -43,7 +43,7 @@ function writeToJson(request){
     hunderdDays.push({"Date": index, "Close": Number(closingPrice)});
     dates.push(index)
     }); 
-
+    console.log(hunderdDays)
     createLineChart(hunderdDays, dates)
     });
 
