@@ -1,6 +1,6 @@
 **Summary**
 
-[Introduction]{.underline}
+__Introduction]__
 
 We are going to calculate the daily historical returns of a stock if
 there would be options. [^1]
@@ -11,15 +11,15 @@ $T$ date. Furthermore $S$ stands for strike price[^2] of a stock.
 
 **The daily return**
 
-[Step 1 ]{.underline}
+__Step 1__
 
 The formula for calculating a return is described below:
 
-$$R_{T} = \ \frac{S_{t} - S_{t - 1}}{S_{t - 1}}$$
+<img width="323" alt="schermafbeelding 2019-01-15 om 22 44 40" src="https://user-images.githubusercontent.com/44025022/51211990-615df300-1917-11e9-86da-cadc2186a76b.png">
 
 **The average return**
 
-[Step 2]{.underline}
+__Step 2__
 
 To get closer to the calculation of the volatility we need to calculate
 the average return of a stock over a certain period. This could be from
@@ -29,55 +29,44 @@ you divide it by the total amount of days.
 
 The formula for calculating the average return is described below:
 
-$$\overline{R} = \ \frac{1}{T}\ \sum_{t = 1}^{T}R_{t}$$
+<img width="245" alt="schermafbeelding 2019-01-15 om 22 45 02" src="https://user-images.githubusercontent.com/44025022/51212008-72a6ff80-1917-11e9-973f-577853d94049.png">
+
 
 Important is that when you use an average return you should use the same
 time period in the calculation for the volatility.
 
 **The variance**
 
-[Step 3 ]{.underline}
+__Step 3__
 
 On this point we have got all the information to calculate the variance
 ( $\sigma^{2}\ $ ) of a stock.
 
 The formula for calculating the variance is described below:
 
-$$Var = \ \frac{1}{T - 1}\ \sum_{t = 1}^{T}\left\lbrack R_{t} - \ \overline{R} \right\rbrack^{2}$$
+<img width="588" alt="schermafbeelding 2019-01-15 om 22 45 09" src="https://user-images.githubusercontent.com/44025022/51212021-82264880-1917-11e9-987b-642f2e1f2af5.png">
 
 **The volatility**
 
-[Step 4]{.underline}
+__Step 4__
 
 Now we can finally calculate the volatility of a stock.
 
 NOTE: Once again it is highly important that we take the right Time
 period.
 
-$$Volatiliteit = \ \sqrt{\text{Variance}}$$
-
-$$\sigma = \ \sqrt{\sigma^{2}}$$
+<img width="537" alt="schermafbeelding 2019-01-15 om 22 45 16" src="https://user-images.githubusercontent.com/44025022/51212031-8e120a80-1917-11e9-99c7-ef437bf61ae3.png">
 
 **The volatility, daily, monthly and yearly**
 
-[Step 5]{.underline}
+__Step 5__
 
 There are handy fomula's to calculate the volatility per month or year
 once you have the daily volatility.
 
 The formula's for calculating these volatilities are described below:
 
-We start off with daily:
-
-$$\sigma_{\text{daily}} = \ \sqrt{\sigma^{2}}$$
-
-We use the daily volatility to come to the yearly volatility:
-
-$$\sigma_{\text{yearly}} = \sigma_{\text{daily}}*\ \sqrt{251}\ $$
-
-Then we can also calculate the monthly volatility:
-
-$$\sigma_{\text{monthly}} = \ \frac{\sigma_{\text{yearly}}}{\sqrt{12}}$$
+<img width="788" alt="schermafbeelding 2019-01-15 om 22 45 30" src="https://user-images.githubusercontent.com/44025022/51212064-a84be880-1917-11e9-9d3e-5b013ebe3ef4.png">
 
 **Created by:**
 
