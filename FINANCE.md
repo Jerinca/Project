@@ -1,6 +1,6 @@
 **Summary**
 
-__Introduction]__
+__Introduction__
 
 We are going to calculate the daily historical returns of a stock if
 there would be options. [^1]

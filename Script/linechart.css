@@ -1,7 +1,31 @@
 .line {
     fill: none;
-    stroke: #ffab00;
+    stroke: #6d8891;
     stroke-width: 3;
+}
+
+.yaxis text{
+      fill: none;
+    stroke: #cda20b;
+    stroke-width: 1;
+}
+
+.yaxis line {
+      fill: none;
+    stroke: #6b3603;
+    stroke-width: 3;
+}
+
+.axisRed path{
+  stroke: #6b3603;
+  stroke-width: 3;
+}
+
+
+.xasis {
+       fill: none;
+    stroke: #cda20b;
+    stroke-width: 1;
 }
   
 .overlay {
