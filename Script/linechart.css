@@ -28,13 +28,13 @@
     stroke-width: 1;
 }
   
-.overlay {
+/*.overlay {
   fill: none;
   pointer-events: all;
-}
+}*/
 
 /* Style the dots by assigning a fill and stroke */
-.dot {
+/*.dot {
     fill: #ffab00;
     stroke: #fff;
 }
@@ -42,6 +42,23 @@
   .focus circle {
   fill: none;
   stroke: steelblue;
+}
+*/
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.focus circle {
+  fill: #F1F3F3;
+  stroke: #6F257F;
+  stroke-width: 5px;
+}
+  
+.hover-line {
+  stroke: #6F257F;
+  stroke-width: 2px;
+  stroke-dasharray: 3,3;
 }
 
 div.tooltip { 

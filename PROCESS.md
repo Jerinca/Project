@@ -132,3 +132,7 @@ The formula's for calculating these volatilities are described below:
     can be bought by the option buyer up till the expiration date. For
     put options, the strike price is the price at which shares can be
     sold by the option buyer.
+
+ # day 8
+
+ Graph is updating now! So thats really cool. Tried to implement a tooltip wich isn't working sadly. 

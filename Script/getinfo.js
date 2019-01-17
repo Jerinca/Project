@@ -132,7 +132,50 @@ function createLineChart(hunderdDays, dates){
     .attr("stroke-linecap", "round")
     .attr("d", line);
 
+  // var focus = svg.append("g")
+  //       .attr("class", "focus")
+  //       .style("display", "none");
 
+  //   focus.append("line")
+  //       .attr("class", "x-hover-line hover-line")
+  //       .attr("y1", 0)
+  //       .attr("y2", height);
+
+  //   focus.append("line")
+  //       .attr("class", "y-hover-line hover-line")
+  //       .attr("x1", width)
+  //       .attr("x2", width);
+
+  //   focus.append("circle")
+  //       .attr("r", 7.5);
+
+  //   focus.append("text")
+  //       .attr("x", 15)
+  //       .attr("dy", ".31em");
+
+  //   svg.append("rect")
+  //       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+  //       .attr("class", "overlay")
+  //       .attr("width", width)
+  //       .attr("height", height)
+  //       .on("mouseover", function() { focus.style("display", null); })
+  //       .on("mouseout", function() { focus.style("display", "none"); })
+  //       .on("mousemove", mousemove);
+
+  //   function mousemove() {
+  //     var x0 = x.invert(d3.mouse(this)[0]),
+  //         i = bisectDate(hunderdDays, x0, 1),
+  //         d0 = hunderdDays[i - 1],
+  //         d1 = hunderdDays[i],
+  //         d = x0 - d0.dates > d1.dates - x0 ? d1 : d0;
+  //     focus.attr("transform", "translate(" + x(d.Date) + "," + y(d.value) + ")");
+  //     focus.select("text").text(function() { return d.value; });
+  //     focus.select(".x-hover-line").attr("y2", height - y(d.value));
+  //     focus.select(".y-hover-line").attr("x2", width + width);
+  //   }
+
+
+    calculateVolatility(hunderdDays, dates);
   }
 
 function updateData(hunderdDays, dates){
@@ -161,62 +204,33 @@ console.log("second and more")
   line = d3.line()
     .x(function (d,i) { return xScale(i)})
     .y(function (d) { return yScale(d.Close)})
-  
-  // // create line
-  // line = d3.line()
-  //   .x(function (d,i) { return xScale(i)})
-  //   .y(function (d) { return yScale(d.Close)})
-
 
   // Select the section we want to apply our changes to
   var svg = d3.select("svg").transition();
 
   // Make the changes
-      // svg.select(".yaxis") // change the y axis
-      //     .duration(750)
-      //     .call(yScale);
       svg.select(".yaxis") // change the y axis
           .duration(750)
           .call(yAxis);
       svg.select(".line")   // change the line
           .duration(750)
-          .attr("d", line(hunderdDays));
-      // svg.select("path") // change the x axis
-      //     .duration(750)
-      //     .call(xAxis);
+          .attr("d", line(hunderdDays))
+          .on("click", function(d){
+        calculateVolatility(hunderdDays, dates);
+        });
 
 
-
-
-      // // Scale the range of the data again 
-      // x.domain(d3.extent(data, function(d) { return d.date; }));
-      // y.domain([0, d3.max(data, function(d) { return d.close; })]);
-
-    // // Select the section we want to apply our changes to
-    // var svg = d3.select("body").transition();
-
-    // // Make the changes
-    //     svg.select(".line")   // change the line
-    //         .duration(750)
-    //         .attr("d", valueline(data));
-    //     svg.select(".x.axis") // change the x axis
-    //         .duration(750)
-    //         .call(xAxis);
-    //     svg.select(".y.axis") // change the y axis
-    //         .duration(750)
-    //         .call(yAxis);
-
-
-
-
-
-
-  // d3.select(".line")
-  // .transition()
-  // .duration()
-  // .attr("...") 
 
   };
+
+
+  function calculateVolatility(hunderdDays, dates){
+    console.log("okeee")
+    createBarChart()
+  }
+  function createBarChart(hunderdDays, dates){
+    console.log("joe")
+  }
 
 
 
