@@ -133,6 +133,24 @@ The formula's for calculating these volatilities are described below:
     put options, the strike price is the price at which shares can be
     sold by the option buyer.
 
- # day 8
 
- Graph is updating now! So thats really cool. Tried to implement a tooltip wich isn't working sadly. 
+# day 8
+
+Graph is updating now! So thats really cool. Tried to implement a tooltip wich isn't working sadly. 
+
+# day 9
+
+Choose this colorpallete to work with for the design
+
+ <img width="449" alt="schermafbeelding 2019-01-16 om 17 25 03" src="https://user-images.githubusercontent.com/44025022/51337776-524a8280-1a88-11e9-8b38-0447dc7904b0.png">
+
+ Worlmap template is displayed on site. 
+ Got data with headquarter locations s&p500.
+
+ Did all the steps in javascript to calculate the volatility (daily monthly & yearly)
+ After that, I started creating a barchart. That needs to be updated, the same as the line chart does when another stock is entered by the user.
+
+ Furthermore the barchart is not completely working yet. It shows the right values but the 1 bin is not placed correctly, need to figure out why.
+
+
+
