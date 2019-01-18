@@ -152,5 +152,12 @@ Choose this colorpallete to work with for the design
 
  Furthermore the barchart is not completely working yet. It shows the right values but the 1 bin is not placed correctly, need to figure out why.
 
+# day 10
+
+Fixed bar chart.
+
+need to update that one when new stock is being entered.
+
+
 
 

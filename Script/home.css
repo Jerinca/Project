@@ -85,3 +85,9 @@ body, html {
     #titlehome {
     	color:#6d8891;
     }
+
+    .textInVis{
+   	fill: none;
+    stroke: #6b3603;
+    stroke-width: 3;
+    }

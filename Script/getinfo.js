@@ -137,47 +137,48 @@ function createLineChart(hunderdDays, dates){
     .attr("stroke-linecap", "round")
     .attr("d", line);
 
-  // var focus = svg.append("g")
-  //       .attr("class", "focus")
-  //       .style("display", "none");
+  var focus = svg.append("g")
+        .attr("class", "focus")
+        .style("display", "none");
 
-  //   focus.append("line")
-  //       .attr("class", "x-hover-line hover-line")
-  //       .attr("y1", 0)
-  //       .attr("y2", height);
+    focus.append("line")
+        .attr("class", "x-hover-line hover-line")
+        .attr("y1", 0)
+        .attr("y2", height);
 
-  //   focus.append("line")
-  //       .attr("class", "y-hover-line hover-line")
-  //       .attr("x1", width)
-  //       .attr("x2", width);
+    focus.append("line")
+        .attr("class", "y-hover-line hover-line")
+        .attr("x1", width)
+        .attr("x2", width);
 
-  //   focus.append("circle")
-  //       .attr("r", 7.5);
+    focus.append("circle")
+        .attr("r", 7.5);
 
-  //   focus.append("text")
-  //       .attr("x", 15)
-  //       .attr("dy", ".31em");
+    focus.append("text")
+        .attr("x", 15)
+        .attr("dy", ".31em");
 
-  //   svg.append("rect")
-  //       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-  //       .attr("class", "overlay")
-  //       .attr("width", width)
-  //       .attr("height", height)
-  //       .on("mouseover", function() { focus.style("display", null); })
-  //       .on("mouseout", function() { focus.style("display", "none"); })
-  //       .on("mousemove", mousemove);
+    svg.append("rect")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .attr("class", "overlay")
+        .attr("width", width)
+        .attr("height", height)
+        .on("mouseover", function() { focus.style("display", null); })
+        .on("mouseout", function() { focus.style("display", "none"); })
+        .on("mousemove", mousemove);
 
-  //   function mousemove() {
-  //     var x0 = x.invert(d3.mouse(this)[0]),
-  //         i = bisectDate(hunderdDays, x0, 1),
-  //         d0 = hunderdDays[i - 1],
-  //         d1 = hunderdDays[i],
-  //         d = x0 - d0.dates > d1.dates - x0 ? d1 : d0;
-  //     focus.attr("transform", "translate(" + x(d.Date) + "," + y(d.value) + ")");
-  //     focus.select("text").text(function() { return d.value; });
-  //     focus.select(".x-hover-line").attr("y2", height - y(d.value));
-  //     focus.select(".y-hover-line").attr("x2", width + width);
-  //   }
+    function mousemove() {
+      var x0 = xScale.invert(d3.mouse(this)[0]),
+          i = bisectDate(hunderdDays, x0),
+          d0 = hunderdDays[i - 1],
+          d1 = hunderdDays[i],
+          d = x0 - d0.dates > d1.dates - x0 ? d1 : d0;
+
+      focus.attr("transform", "translate(" + x(d.Date) + "," + y(d.value) + ")");
+      focus.select("text").text(function() { return d.value; });
+      focus.select(".x-hover-line").attr("y2", height - y(d.value));
+      focus.select(".y-hover-line").attr("x2", width + width);
+    }
 
   calculateVolatility(hunderdDays, dates);
   }
@@ -271,7 +272,7 @@ function updateData(hunderdDays, dates){
 
     calculatedVariance = sumPower * (1 / (100 - 1))
 
-    var volatilityDaily = Math.sqrt(calculatedVariance);
+    var volatilityDaily = Math.sqrt(calculatedVariance) * 100;
     console.log(volatilityDaily)
 
     var volatilityYearly = Math.sqrt(251) * volatilityDaily
@@ -280,9 +281,9 @@ function updateData(hunderdDays, dates){
     var volatilityMonthly = volatilityYearly / Math.sqrt(12)
     console.log(volatilityMonthly)
 
-    dictionairyVolatility.push({"TimePeriod": "Daily-Volatility", "Volatility": volatilityDaily})
-    dictionairyVolatility.push({"TimePeriod": "Monthly-Volatility", "Volatility": volatilityMonthly})
-    dictionairyVolatility.push({"TimePeriod": "Yearly-Volatility", "Volatility": volatilityYearly})
+    dictionairyVolatility.push({"TimePeriod": "Daily-Volatility", "Volatility": Math.round(volatilityDaily)})
+    dictionairyVolatility.push({"TimePeriod": "Monthly-Volatility", "Volatility": Math.round(volatilityMonthly)})
+    dictionairyVolatility.push({"TimePeriod": "Yearly-Volatility", "Volatility": Math.round(volatilityYearly)})
 
     var volatilities = ["Daily-Volatility", "Monthly-Volatility", "Yearly-volatility"]
 
@@ -293,15 +294,15 @@ function updateData(hunderdDays, dates){
   }
   function createBarChart(volDict, volas){
     // width and height svg and bar padding
-  var w = 800;
-  var h = 600;
+  // var w = 1000;
+  // var h = 600;
   var barPadding = 4.5;
 
 
     console.log("joe")
 // set the dimensions and margins of the graph
   var margin = {top: 50, right: 20, bottom: 100, left: 40},
-      width = 960 - margin.left - margin.right,
+      width = 1160 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
             
   // append the svg object to the body of the page
@@ -319,6 +320,8 @@ function updateData(hunderdDays, dates){
         .attr("y", 0 - (margin.top / 2))
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 
+        .attr("font-family", "sans-serif")
+       .style('fill', '#6d8891')
         .text("Daily, Monthly and Yearly Volatilities");
 
   // set color range  
@@ -346,6 +349,11 @@ function updateData(hunderdDays, dates){
            .domain(volas)
            .range([0, width]);
 
+  var xScaleBin = d3.scaleLinear()
+            .domain([0,3])
+           .range([0, width]);
+
+
    // creat Y axis
    var yAxis = d3.axisLeft(yScale)
 
@@ -359,9 +367,9 @@ function updateData(hunderdDays, dates){
       .call(d3.axisBottom(xScale))
       .selectAll("text")
         .style("font", "8px times") 
-          .style("text-anchor", "end")
-          .attr("dx", "-.8em")
-          .attr("dy", ".15em")
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
           .attr("transform", "rotate(-90)");
 
 
@@ -373,14 +381,14 @@ function updateData(hunderdDays, dates){
        .attr("fill", function(d, i){
           return colors(i);
        })
-       .attr("x", function(d) {
-          console.log(xScale)
-          return xScale(d.TimePeriod);
+       .attr("x", function(d, i) {
+          console.log((i))
+          return xScaleBin(i);
        })
        .attr("y", function(d) {
           return yScale(d.Volatility);
        })
-       .attr("width", width / volas.length + barPadding)
+       .attr("width", (width / volas.length) + barPadding)
        .attr("height", function(d) {
           return height - yScale(d.Volatility);
        })
@@ -405,21 +413,23 @@ function updateData(hunderdDays, dates){
 
     // set text
     svg.selectAll(".textInVis")
+       .attr("class", "textInVis")
        .data(volDict)
        .enter()
        .append("text")
        .text(function(d) {
-          return d.Volatility;
+          return d.Volatility + "%";
        })
        // .attr("text-anchor", "middle")
        .attr("x", function(d, i) {
-          return xScale(d.TimePeriod);
+          return xScaleBin(i);
        })
        .attr("y", function(d) {
           return yScale(d.Volatility);
        })
        .attr("font-family", "sans-serif")
-       .attr("font-size", "8px");
+       .style('fill', '#6d8891')
+       .attr("font-size", "16px");
   }
 
 
