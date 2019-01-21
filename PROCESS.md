@@ -158,6 +158,11 @@ Fixed bar chart.
 
 need to update that one when new stock is being entered.
 
+# day 11
+
+I tried writing some code for updating the bar chart as well. is not really working yet. tomorrow I am going to visualize the worldmap with S&P 500 companies. And trying to create click on line graph. 
+
+
 
 
 

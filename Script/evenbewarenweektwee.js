@@ -224,7 +224,13 @@ function updateData(hunderdDays, dates){
       svg.select(".line")   // change the line
           .duration(750)
           .attr("d", line(hunderdDays))
-          .on("click", function(){circleClicked()
+          .on('click', circleClicked)
+          .on("click", function(d){
+            console.log("OKOKOK")
+
+
+      svg.on('click', circleClicked)
+        
         });
 
   calculateVolatility(hunderdDays, dates);
@@ -472,8 +478,9 @@ function updateData(hunderdDays, dates){
 function updateDataTwo(hunderdDays, dates){
   console.log("OK")
 }
+
 function circleClicked(){
-  console.log("YOOOOO")
+  console.log("YO")
 }
 
 
