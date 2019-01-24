@@ -162,6 +162,11 @@ need to update that one when new stock is being entered.
 
 I tried writing some code for updating the bar chart as well. is not really working yet. tomorrow I am going to visualize the worldmap with S&P 500 companies. And trying to create click on line graph. 
 
+# day 13
+
+I rewrote my code in different files to get a little bit of an overview. I am a little bit stuck.. and Im stressed about the deadline and I forgot to upload my processbook..... anyway. today is the hacketon. Lets hope I can make some progress this evening and tomorrow. Need to update my barchart. Is not worken. my click on is not working.
+
+
 
 
 
