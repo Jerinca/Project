@@ -81,10 +81,10 @@ function writeToJson(request){
       // create bar chart and line graph first time
       createLineChart(hunderdDays, dates)
       
-      // on click I want it to become a certain day. ...... do something
-      d3.select(".dot")
-          .on("click", function(){console.log("JOE")
-        });
+      // // on click I want it to become a certain day. ...... do something
+      // d3.select(".dot")
+      //     .on("click", function(){console.log("JOE")
+      //   });
 
       console.log(dictionairyVolatility, volatilities)
 
@@ -105,11 +105,16 @@ function writeToJson(request){
       // // this is going to be updateDataGraph
       // createBarChart(dictionairyVolatility, volatilities)
 
-      //       // on click I want it to become a certain day. ...... do something
+      // on click I want it to become a certain day. ...... do something
       // d3.select(".line")
-      //     .on("click", function(){updateDataGraph(dictionairyVolatility, volatilities)
+      //     .on("click", function(){createBarChart(dictionairyVolatility, volatilities)
       //   });
     };
+
+         // on click I want it to become a certain day. ...... do something
+      d3.select(".line")
+          .on("click", function(){createBarChart(dictionairyVolatility, volatilities)
+        });
     });
 
 }).catch(function(e){

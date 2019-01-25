@@ -166,7 +166,9 @@ I tried writing some code for updating the bar chart as well. is not really work
 
 I rewrote my code in different files to get a little bit of an overview. I am a little bit stuck.. and Im stressed about the deadline and I forgot to upload my processbook..... anyway. today is the hacketon. Lets hope I can make some progress this evening and tomorrow. Need to update my barchart. Is not worken. my click on is not working.
 
+# day 14 
 
+set everything back to on line click. 
 
 
 

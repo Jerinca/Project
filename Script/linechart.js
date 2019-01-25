@@ -76,27 +76,27 @@ function createLineChart(hunderdDays, dates){
         .attr("x", 15)
         .attr("dy", ".31em");
 
-     // 12. Appends a circle for each datapoint 
-svg.selectAll(".dot")
-    .data(hunderdDays)
-  .enter().append("circle") // Uses the enter().append() method
-    .attr("class", "dot") // Assign a class for styling
-    .attr("cx", function (d,i) { return xScale(i)})
-    .attr("cy", function (d) { return yScale(d.Close)})
-    .attr("r", 5)
-    .style("opacity", 0)
-      .on("mouseover", function(d) { 
-      	d3.select(this)
-      	.style("opacity", 1) 
-		})
-      .on("mouseout", function(d) { 
-      	d3.select(this)
-      	// .transistion()
-      	// .duration(500)
-      	.style("opacity", 0)
-        })
-       .on("click", function(){console.log("JOE")
-   })
+//      // 12. Appends a circle for each datapoint 
+// svg.selectAll(".dot")
+//     .data(hunderdDays)
+//   .enter().append("circle") // Uses the enter().append() method
+//     .attr("class", "dot") // Assign a class for styling
+//     .attr("cx", function (d,i) { return xScale(i)})
+//     .attr("cy", function (d) { return yScale(d.Close)})
+//     .attr("r", 5)
+//     .style("opacity", 0)
+//       .on("mouseover", function(d) { 
+//       	d3.select(this)
+//       	.style("opacity", 1) 
+// 		})
+//       .on("mouseout", function(d) { 
+//       	d3.select(this)
+//       	// .transistion()
+//       	// .duration(500)
+//       	.style("opacity", 0)
+//         })
+//        .on("click", function(){console.log("JOE")
+//    })
 
 
        
