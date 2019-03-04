@@ -14,11 +14,7 @@ var svg = d3.select("#svg").append("svg")
   .attr("height", height + margin.top + margin.bottom)
   .append("g")
   .attr("transform", 
-        "translate(" + margin.left + "," + margin.top + ")");
-
-// // keep track
-// var counter = 0;
-// var counterVol = 0;
+        "translate(" + margin.left + "," + margin.top + ")"); 
 
 // when window is being unloaded show
 window.onload = function() {
@@ -38,15 +34,15 @@ d3.select("#sic")
   getData(inputSearch)    
   });
 
-// console.log(getData)
-
 function getData(input){
   requestTicker = stringOne + input + stringThree
   writeToJson(requestTicker)
   }
 
+
 function writeToJson(request){
   var requests = [d3.json(request)];
+
 
   // hold data
   Promise.all(requests).then(function(response) {
@@ -54,68 +50,54 @@ function writeToJson(request){
   mydata = response;
 
 
-  mydata.forEach(function(element){
-    var dailies = element["Time Series (Daily)"]
-    var hunderdDays = [];
-    var dates = [];
-    
-    // take each object and push as dictionairy
-    $.each(dailies, function(index, value) {
-      var closingPrice = value["4. close"]
-      hunderdDays.push({"Date": index, "Close": Number(closingPrice)});
-      dates.push(index)
+mydata.forEach(function(element){
+  var dailies = element["Time Series (Daily)"]
+  var hunderdDays = [];
+  var dates = [];
+  
+  // take each object and push as dictionairy
+  $.each(dailies, function(index, value) {
+    var closingPrice = value["4. close"]
+    hunderdDays.push({"Date": index, "Close": Number(closingPrice)});
+    dates.push(index)
     }); 
 
-    // now we have the dates in the right follow up
-    hunderdDays.reverse();
-    dates.reverse();
+  // now we have the dates in the right follow up
+  hunderdDays.reverse();
+  dates.reverse();
 
-    // save info about volatilities
-    var infovol = calculateVolatility(hunderdDays, dates);
-    dictionairyVolatility = infovol[0];
-    volatilities = infovol[1];
+  // save info about volatilities
+  var infovol = calculateVolatility(hunderdDays, dates);
+  dictionairyVolatility = infovol[0];
+  volatilities = infovol[1];
 
-    // if it is the first time searching
-    if (counter == 0){
+  // if it is the first time searching
+  if (counter == 0){
 
-      // create bar chart and line graph first time
-      createLineChart(hunderdDays, dates)
-      
-      // // on click I want it to become a certain day. ...... do something
-      // d3.select(".dot")
-      //     .on("click", function(){console.log("JOE")
-      //   });
+    // create bar chart and line graph first time
+    createLineChart(hunderdDays, dates)
 
-      console.log(dictionairyVolatility, volatilities)
+    console.log(dictionairyVolatility, volatilities)
 
-      // createBarChart(dictionairyVolatility, volatilities)
-      counter+=1;   
-    }
 
-    // second time searching update graphs
-    else {
+    createBarChart(dictionairyVolatility, volatilities)
 
-      // update the line graph and barchart 
-      updateDataLine(hunderdDays, dates)
+    counter+=1;   
+  }
 
-      console.log(dictionairyVolatility, volatilities)
+  // second time searching update graphs
+  else {
 
-      updateDataGraph(dictionairyVolatility, volatilities)
+    // update the line graph and barchart 
+    updateDataLine(hunderdDays, dates)
 
-      // // this is going to be updateDataGraph
-      // createBarChart(dictionairyVolatility, volatilities)
+    console.log(dictionairyVolatility, volatilities)
 
-      // on click I want it to become a certain day. ...... do something
-      // d3.select(".line")
-      //     .on("click", function(){createBarChart(dictionairyVolatility, volatilities)
-      //   });
-    };
+    updateDataGraph(dictionairyVolatility, volatilities)
 
-         // on click I want it to become a certain day. ...... do something
-      d3.select(".line")
-          .on("click", function(){createBarChart(dictionairyVolatility, volatilities)
-        });
-    });
+  };
+
+  });
 
 }).catch(function(e){
     throw(e);

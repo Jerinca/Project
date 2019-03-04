@@ -170,6 +170,10 @@ I rewrote my code in different files to get a little bit of an overview. I am a 
 
 set everything back to on line click. 
 
+# 4-03-19
+
+working on a bubble chart instead of world map. trying to update the barchart..
+
 
 
 
