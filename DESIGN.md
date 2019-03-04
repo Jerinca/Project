@@ -20,11 +20,11 @@ as well as descriptions of each of the components and what you need to implement
 
 ## Diagram
 
-The main thing is that the user should be able to create a portfolio from stocks and follow the portfolio growth from that particular portfolio. 
+The main thing is that the user should be able to see what the stock prices where for the past 100 days, the volatility and an overvieuw of the S&P500 companies.
+<img width="652" alt="schermafbeelding 2019-03-04 om 19 16 42" src="https://user-images.githubusercontent.com/44025022/53753988-ecd51880-3eb2-11e9-8753-46c944764315.png">
+<!-- <img width="839" alt="schermafbeelding 2019-01-08 om 15 17 15" src="https://user-images.githubusercontent.com/44025022/50836114-b8345d00-1358-11e9-8361-63371c136478.png">
 
-<img width="839" alt="schermafbeelding 2019-01-08 om 15 17 15" src="https://user-images.githubusercontent.com/44025022/50836114-b8345d00-1358-11e9-8361-63371c136478.png">
-
-<img width="960" alt="schermafbeelding 2019-01-08 om 15 14 44" src="https://user-images.githubusercontent.com/44025022/50835985-5f64c480-1358-11e9-840c-d72165234d5d.png">
+<img width="960" alt="schermafbeelding 2019-01-08 om 15 14 44" src="https://user-images.githubusercontent.com/44025022/50835985-5f64c480-1358-11e9-840c-d72165234d5d.png"> -->
 
 
 The idea next to that is to create a page where a user can see the stock information about a stock of the past +- 20 years in a graph. The users should be able to insert a ticker symbol. 
