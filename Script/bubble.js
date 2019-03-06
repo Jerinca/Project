@@ -1,4 +1,7 @@
-dictionairy = []
+list = []
+dictionairy = {"children":[]}
+
+console.log(dictionairy["children"])
 
 // load csv file to d3 v5    
 d3.csv('weights.csv')
@@ -7,13 +10,14 @@ d3.csv('weights.csv')
     data.forEach(function(element){
       var companyCompany = element["Company"]
       var weigthsCompany = element["Weight"]
-      dictionairy.push({"childeren": [{"Company": companyCompany, "Weight": Number(weigthsCompany)}]});
+      dictionairy["children"].push({"Company": companyCompany, "Weight": Number(weigthsCompany)});
+
     });
 
 	console.log(dictionairy)
 
 var diameter = 600;
-var color = d3.scaleOrdinal(d3.schemeCategory20);
+var color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var bubble = d3.pack(dictionairy)
     .size([diameter, diameter])
@@ -26,10 +30,10 @@ var svg = d3.select("body")
     .attr("class", "bubble");
 
 var nodes = d3.hierarchy(dictionairy)
-    .sum(function(d) { return d.Weight; });
+    .sum(function(d) { console.log(d) ;return d.Weight; });
 
 var node = svg.selectAll(".node")
-    .dictionairy(bubble(nodes).descendants())
+    .data(bubble(nodes).descendants())
     .enter()
     .filter(function(d){
         return  !d.children
@@ -57,7 +61,8 @@ node.append("text")
     .attr("dy", ".2em")
     .style("text-anchor", "middle")
     .text(function(d) {
-        return d.dictionairy.Company.substring(0, d.r / 3);
+    	// console.log(d.data.childeren)
+        return d.data.Company.substring(0, d.r / 3);
     })
     .attr("font-family", "sans-serif")
     .attr("font-size", function(d){
@@ -69,7 +74,7 @@ node.append("text")
     .attr("dy", "1.3em")
     .style("text-anchor", "middle")
     .text(function(d) {
-        return d.dictionairy.Weight;
+        return d.data.Weight;
     })
     .attr("font-family",  "Gill Sans", "Gill Sans MT")
     .attr("font-size", function(d){
@@ -88,7 +93,7 @@ var bubble = d3.pack(dictionairy)
             .padding(1.5);
 
 var node = svg.selectAll(".node")
-            .dictionairy(bubble(nodes).descendants())
+            .data(bubble(nodes).descendants())
             .enter()
             .filter(function(d){
                 return  !d.children
