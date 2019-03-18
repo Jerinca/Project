@@ -10,7 +10,8 @@ d3.csv('weights.csv')
     data.forEach(function(element){
       var companyCompany = element["Company"]
       var weigthsCompany = element["Weight"]
-      dictionairy["children"].push({"Company": companyCompany, "Weight": Number(weigthsCompany)});
+      var symbolCompany = element["Symbol"]
+      dictionairy["children"].push({"Company": companyCompany, "Weight": Number(weigthsCompany), "Symbol": symbolCompany});
 
     });
 

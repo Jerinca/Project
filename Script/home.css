@@ -90,4 +90,5 @@ body, html {
    	fill: none;
     stroke: #cda20b;
     stroke-width: 1;
+    text-anchor: right;
     }

@@ -31,9 +31,13 @@ d3.csv('weights.csv')
     data.forEach(function(element){
       var companyCompany = element["Company"]
       var weigthsCompany = element["Weight"]
-      dictionairy["children"].push({"Company": companyCompany, "Weight": Number(weigthsCompany)});
+      var symbolCompany = element["Symbol"]
+      dictionairy["children"].push({"Company": companyCompany, "Weight": Number(weigthsCompany), "Symbol": symbolCompany});
 
     });
+
+  console.log(dictionairy)
+
     getBubbles(dictionairy)
   });
 // console.log(dictionairy)
@@ -42,15 +46,23 @@ d3.csv('weights.csv')
 // keep track
 var counter = 0;
 var counterVol = 0;
+var counterPage = 0;
 
 // get dataset
 stringOne = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="
 stringThree = "&interval=5min&apikey=DFYSSV5T3EZ9UW6E"
 
+// get starting page with s&p500 info
+requestTickerSP = stringOne + "MSFT" + stringThree
+
+// console.log(requestTickerSP)
+getData(requestTickerSP)
+
 // select search icon and on click get data
 d3.select("#sic")
   .on("click", function() {
   var inputSearch = d3.select("#sin").property("value");
+  console.log("YOclick")
   getData(inputSearch)    
   });
 
@@ -63,18 +75,29 @@ $("#sin").keyup(function(event) {
 
 $("#sic").click(function() {
   var inputSearch = d3.select("#sin").property("value");
+  console.log("YOenter")
   getData(inputSearch) ;
 });
 
 function getData(input){
-  requestTicker = stringOne + input + stringThree
-  writeToJson(requestTicker)
+  if (counterPage == 0){
+    requestTickerSP = input
+    writeToJson(requestTickerSP)
+    counterPage += 1;
+  }
+  else {
+    console.log("YO")
+    requestTicker = stringOne + input + stringThree
+    console.log(requestTicker)
+    writeToJson(requestTicker)
+  };
+  
   }
 
 
 function writeToJson(request){
   var requests = [d3.json(request)];
-
+  // console.log(request)
 
   // hold data
   Promise.all(requests).then(function(response) {
