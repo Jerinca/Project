@@ -19,6 +19,26 @@ var svg = d3.select("#svg").append("svg")
 // when window is being unloaded show
 window.onload = function() {
 
+list = []
+dictionairy = {"children":[]}
+
+// console.log(dictionairy["children"])
+
+// load csv file to d3 v5    
+d3.csv('weights.csv')
+  .then(function(data) {
+
+    data.forEach(function(element){
+      var companyCompany = element["Company"]
+      var weigthsCompany = element["Weight"]
+      dictionairy["children"].push({"Company": companyCompany, "Weight": Number(weigthsCompany)});
+
+    });
+    getBubbles(dictionairy)
+  });
+// console.log(dictionairy)
+// getBubbles(dictionairy)
+
 // keep track
 var counter = 0;
 var counterVol = 0;
@@ -33,6 +53,18 @@ d3.select("#sic")
   var inputSearch = d3.select("#sin").property("value");
   getData(inputSearch)    
   });
+
+
+$("#sin").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#sic").click();
+    }
+});
+
+$("#sic").click(function() {
+  var inputSearch = d3.select("#sin").property("value");
+  getData(inputSearch) ;
+});
 
 function getData(input){
   requestTicker = stringOne + input + stringThree
@@ -104,8 +136,6 @@ mydata.forEach(function(element){
 });
 };
 };
-
-
 
 
 

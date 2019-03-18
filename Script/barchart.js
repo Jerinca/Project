@@ -3,11 +3,11 @@
 function createBarChart(volDict, volas){
   
 console.log("first time BAR CHART")
-var barPadding = 4.5;
+var barPadding = 5.5;
 
 // set the dimensions and margins of the graph
 var margin = {top: 50, right: 20, bottom: 100, left: 40},
-    width = 1160 - margin.left - margin.right,
+    width = 400 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
           
 // append the svg object to the body of the page
@@ -93,7 +93,7 @@ svg.selectAll("rect")
    .attr("y", function(d) {
       return yScale(d.Volatility);
    })
-   .attr("width", (width / volas.length) + barPadding)
+   .attr("width", (width / volas.length) - barPadding)
    .attr("height", function(d) {
       return height - yScale(d.Volatility);
    })
@@ -115,10 +115,10 @@ svg.selectAll("rect")
 
 // set text
 svg.selectAll(".textInVis")
-   .attr("class", "textInVis")
    .data(volDict)
    .enter()
    .append("text")
+   .attr("class", "textInVis")
    .text(function(d) {
       return d.Volatility + "%";
    })

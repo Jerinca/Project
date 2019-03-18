@@ -20,6 +20,13 @@ function createLineChart(hunderdDays, dates){
   // create yAxis
   var yAxis = d3.axisLeft(yScale)
 
+  var svg = d3.select("#lineCh").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", 
+          "translate(" + margin.left + "," + margin.top + ")");
+
 
   // append yAxis on the left side
   svg.append("g")
