@@ -128,8 +128,8 @@ svg.selectAll(".textInVis")
    })
    .attr("y", function(d) {
       return yScale(d.Volatility);
-   })
-   .attr("font-family", "sans-serif")
-   .style('fill', '#6d8891')
-   .attr("font-size", "16px");
+   });
+   // .attr("font-family", "sans-serif")
+   // .style('fill', '#6d8891')
+   // .attr("font-size", "16px");
 }
