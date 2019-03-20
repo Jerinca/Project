@@ -1,5 +1,10 @@
 function getBubbles(dictionairy){
 
+// get dataset
+stringOneB = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="
+stringThreeB = "&interval=5min&apikey=DFYSSV5T3EZ9UW6E"
+
+
 var diameter = 600;
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -25,7 +30,17 @@ var node = svg.selectAll(".node")
     .append("g")
     .attr("class", "node")
     .attr("transform", function(d) {
-        return "translate(" + d.x + "," + d.y + ")";
+        return "translate(" + d.x + "," + d.y + ")"
+    })
+    .on('click', function(d) {
+    var symbolCompany = d.data.Symbol
+    console.log("You clicked")
+    console.log(symbolCompany)
+    
+    // get starting page with s&p500 info
+    requestTickerSPB = stringOneB + symbolCompany + stringThreeB
+    console.log(requestTickerSPB)
+    writeToJson(requestTickerSPB)
     });
 
 node.append("title")
@@ -87,7 +102,9 @@ var node = svg.selectAll(".node")
                 return "translate(" + d.x + "," + d.y + ")";
             });
 
-
+// node.on('click', function(d) {
+//   console.log("You clicked");
+// });
 
   };
 
