@@ -15,11 +15,12 @@ var svg = d3.select("#svg").append("svg")
   .append("g")
   .attr("transform", 
         "translate(" + margin.left + "," + margin.top + ")"); 
-  
+
 // keep track
 var counter = 0;
 var counterVol = 0;
 var counterPage = 0;
+var inputSearch;
 
 // when window is being unloaded show
 window.onload = function() {
@@ -41,17 +42,8 @@ d3.csv('weights.csv')
 
     });
 
-  console.log(dictionairy)
-
     getBubbles(dictionairy)
   });
-// console.log(dictionairy)
-// getBubbles(dictionairy)
-
-// // keep track
-// var counter = 0;
-// var counterVol = 0;
-// var counterPage = 0;
 
 // get dataset
 stringOne = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol="
@@ -66,8 +58,8 @@ getData(requestTickerSP)
 // select search icon and on click get data
 d3.select("#sic")
   .on("click", function() {
-  var inputSearch = d3.select("#sin").property("value");
-  console.log("YOclick")
+  inputSearch = d3.select("#sin").property("value");
+  console.log(inputSearch)
   getData(inputSearch)    
   });
 
@@ -80,7 +72,6 @@ $("#sin").keyup(function(event) {
 
 $("#sic").click(function() {
   var inputSearch = d3.select("#sin").property("value");
-  console.log("YOenter")
   getData(inputSearch) ;
 });
 
@@ -91,89 +82,20 @@ function getData(input){
     counterPage += 1;
   }
   else {
-    console.log("YO")
     requestTicker = stringOne + input + stringThree
     console.log(requestTicker)
     writeToJson(requestTicker)
-  };
-  
+  };  
   }
-
-
-// function writeToJson(request){
-//   var requests = [d3.json(request)];
-//   // console.log(request)
-
-//   // hold data
-//   Promise.all(requests).then(function(response) {
-
-//   mydata = response;
-
-
-// mydata.forEach(function(element){
-//   var dailies = element["Time Series (Daily)"]
-//   var hunderdDays = [];
-//   var dates = [];
-  
-//   // take each object and push as dictionairy
-//   $.each(dailies, function(index, value) {
-//     var closingPrice = value["4. close"]
-//     hunderdDays.push({"Date": index, "Close": Number(closingPrice)});
-//     dates.push(index)
-//     }); 
-
-//   // now we have the dates in the right follow up
-//   hunderdDays.reverse();
-//   dates.reverse();
-
-//   // save info about volatilities
-//   var infovol = calculateVolatility(hunderdDays, dates);
-//   dictionairyVolatility = infovol[0];
-//   volatilities = infovol[1];
-
-//   // if it is the first time searching
-//   if (counter == 0){
-
-//     // create bar chart and line graph first time
-//     createLineChart(hunderdDays, dates)
-
-//     console.log(dictionairyVolatility, volatilities)
-
-
-//     createBarChart(dictionairyVolatility, volatilities)
-
-//     counter+=1;   
-//   }
-
-//   // second time searching update graphs
-//   else {
-
-//     // update the line graph and barchart 
-//     updateDataLine(hunderdDays, dates)
-
-//     console.log(dictionairyVolatility, volatilities)
-
-//     updateDataGraph(dictionairyVolatility, volatilities)
-
-//   };
-
-//   });
-
-// }).catch(function(e){
-//     throw(e);
-// });
-// };
 };
 
 function writeToJson(request){
   var requests = [d3.json(request)];
-  // console.log(request)
 
   // hold data
   Promise.all(requests).then(function(response) {
 
   mydata = response;
-
 
 mydata.forEach(function(element){
   var dailies = element["Time Series (Daily)"]
@@ -200,9 +122,9 @@ mydata.forEach(function(element){
   if (counter == 0){
 
     // create bar chart and line graph first time
-    createLineChart(hunderdDays, dates)
+    createLineChart(hunderdDays, dates, inputSearch)
 
-    console.log(dictionairyVolatility, volatilities)
+    // console.log(dictionairyVolatility, volatilities)
 
 
     createBarChart(dictionairyVolatility, volatilities)
@@ -214,16 +136,15 @@ mydata.forEach(function(element){
   else {
 
     // update the line graph and barchart 
-    updateDataLine(hunderdDays, dates)
+    updateDataLine(hunderdDays, dates, inputSearch)
 
-    console.log(dictionairyVolatility, volatilities)
+    // console.log(dictionairyVolatility, volatilities)
 
     updateDataGraph(dictionairyVolatility, volatilities)
 
   };
 
   });
-
 }).catch(function(e){
     throw(e);
 });

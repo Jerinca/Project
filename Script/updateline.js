@@ -1,7 +1,7 @@
 // this should update line graph
-function updateDataLine(hunderdDays, dates){
+function updateDataLine(hunderdDays, dates, inputsearch){
 
-  console.log("second and more UPDATE LINE")
+  console.log(inputsearch)
 
   // create yScale
   var yScale = d3.scaleLinear()

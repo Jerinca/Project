@@ -102,9 +102,16 @@ var node = svg.selectAll(".node")
                 return "translate(" + d.x + "," + d.y + ")";
             });
 
-// node.on('click', function(d) {
-//   console.log("You clicked");
-// });
+// svg.append("text")
+//     .attr("x", (width / 2))             
+//     .attr("y", 0 - (margin.top / 2))
+//     .attr("text-anchor", "middle")  
+//     .style("font-size", "16px") 
+//     .attr("font-family", "sans-serif")  
+//     .style('fill', '#6d8891')
+//     .style("text-decoration", "underline")  
+//     .text("S&P 500 Companies");
+
 
   };
 

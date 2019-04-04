@@ -2,7 +2,6 @@
 
 function createBarChart(volDict, volas){
   
-console.log("first time BAR CHART")
 var barPadding = 5.5;
 
 // set the dimensions and margins of the graph
@@ -27,6 +26,7 @@ svg.append("text")
     .style("font-size", "16px") 
     .attr("font-family", "sans-serif")  
     .style('fill', '#6d8891')
+    .style("text-decoration", "underline")  
     .text("Daily, Monthly and Yearly Volatilities");
 
 // set color range  
@@ -122,14 +122,11 @@ svg.selectAll(".textInVis")
    .text(function(d) {
       return d.Volatility + "%";
    })
-   // .attr("text-anchor", "middle")
    .attr("x", function(d, i) {
       return xScaleBin(i);
    })
    .attr("y", function(d) {
       return yScale(d.Volatility);
    });
-   // .attr("font-family", "sans-serif")
-   // .style('fill', '#6d8891')
-   // .attr("font-size", "16px");
+
 }

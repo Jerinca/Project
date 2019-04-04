@@ -27,13 +27,13 @@
         <li class="active"><a data-toggle="tab" href="#home">HomePage</a></li>
           <li><a data-toggle="tab" href="#menu1">History</a></li>
 
-            <li><a data-toggle="tab" href="#menu2">Creating</a></li>
-              <li><a data-toggle="tab" href="#menu3">Overview</a></li>
+            <li><a data-toggle="tab" href="#menu2">Information</a></li>
+              <li><a data-toggle="tab" href="#menu3">Calculations</a></li>
       </ul>
 
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-      <h3>Portfolio & Stocks<br>A visualization.</h3>
+      <h3>S&P 500, Stock Prices & Volatility<br>A visualization.</h3>
         <img src="chris-li-182361-unsplash.jpg" alt="Wallstr" width="1135" height="500">
           <link rel="stylesheet" href="Script/home.css">
             <div class="jumbotron">
@@ -59,10 +59,6 @@
               </div>
             </div>
           </div>
-
-
-  <!--     <div class="col-md-4"></div>
-        <div class="col-md-12"></div> -->
           <script type="text/javascript" src="Script/getinfo.js"></script>
           <script type="text/javascript" src="Script/getbubbles.js"></script>
           <script type="text/javascript" src="Script/linechart.js"></script>
@@ -71,36 +67,92 @@
           <script type="text/javascript" src="Script/barchart.js"></script>
           <script type="text/javascript" src="Script/updatebars.js"></script>
           <script type="text/javascript" src="d3/d3.min.js"></script>
-    <div class="row" id="lineCh"></div>
-    <div class="row" id="barCh" >
-      <div class="row" id="bubbleCh" ><div class="col-6"></div>
-    </div>
-    </div>
-      
-    </div>
+          <div class="row" id="lineCh"></div>
+          <div class="row" id="barCh" ></div>
+          <div class="row" id="bubbleCh" ></div>
+          <div class="col-6"></div>
+          </div>    
       <div id="tooltip"></div>
-    
-
-     
-         
-     </div>
 
     <div id="menu2" class="tab-pane fade">
-      <h3>Creating Portfolio</h3>
-        <p>Discover what a Portfolio would have done in the past</p>
+      <h3>Introduction </h3>
+      <p>Underneath the tab History we see three different visualisations. When the page is unloaded for the first time we see information about the company Microsoft. We see a line chart with information about the stock prices form the past 100 days. Also we can see an interactive barchart with the volatility (riskyness) of the stocks. Furthermore there is a bubble chart which contains all the companies that are within the S&P500 stock market index.</p>
+      <p> This brings us to the reason why the company Microsoft is displayed when you click on the tab History. Microsoft is the company with the heighest weight wighin the S&P500 and has because of that reason the most influence on the index.</p>
+      <h4>S&P 500</h4>
+      <p>In short the S&P 500 stock market index is an index just like the Dow Jones index or the Nasdaq index. It is a measurement of a section of the stockmarket. Investors and financial managers use them to describe the market and compare returns on investments.</p>
+      <p>The S&P 500 Index, started in 1957, is a stock market index of 500 large publicly traded American stocks. The stocks in this index are from all sectors of the economy and are selected by a committee. To be selected, stocks must have a market cap of $8.2 billion or more (as of 2019), have a public float of at least 50 percent, have positive earnings for the most recent four quarters, and have adequate liquidity as measured by price and volume.</p>
+      <h4>User Guide</h4>
+      <p>On the page History you can see a searchbar. In this search bar you can enter Ticker Symbols from any company. For instance Apple: AAPL, Google: GOOG, FaceBook: FB. If you do this and hit enter you can see that the line chart will be updated and so will the barchart with the volatilites. Another way to retrieve information about a company is to click on the bubble chart and you will see the line chart and barchart updating.</p>
+      <h4>Data Collection</h4>
+      <p>But how is the data from all the companies retrieved? That is done using an API key. Which you can get at alphaadvantage.co. Every time the user makes a request, the data will be collected and the graphs will be updated updated. Because of that we have real time information about the stockprices and we can use this website in half a year and it will be up to date.</p>
     </div>
-    <div id="menu3" class="tab-pane fade">
-      <h3>Sources</h3>
-        <p>Information
-          href="https://unsplash.com/photos/6Y6OnwBKk-o" > Bron foto
-          Bronnen: 
-          https://unsplash.com/photos/6Y6OnwBKk-o
-          https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_comp_nav-toggle&stacked=h
-            http://bl.ocks.org/NPashaP/raw/a74faf20b492ad377312/
-        </p>
-    </div>
-  </div>
-</div>
 
-</body>
+        <div id="menu3" class="tab-pane fade">
+          <h3>Calculations</h3>
+
+            <p>To get to the volatility of a stock we first are going to calculate the daily historical returns of a stock.
+            From there on we can do some calculations about the stocks to get to the volatility of a stock. In the formula R stands for Return on a certain T date. Furthermore S stands for the closing price of a stock.</p>
+            <p><b>The daily return</b></p>
+
+            <p><strong>Step 1</strong></p>
+            <p>The formula for calculating a return is described below:</p>
+
+            <img width="323" alt="schermafbeelding 2019-01-15 om 22 44 40" src="https://user-images.githubusercontent.com/44025022/51211990-615df300-1917-11e9-86da-cadc2186a76b.png">
+            <p><strong>The average return</strong></p>
+
+            <p><strong>Step 2</strong></p>
+
+            <p>To get closer to the calculation of the volatility we need to calculate
+            the average return of a stock over a certain period. This could be from
+            only one day but also over a month or over a year. What is happening is
+            that you take all the returns from all the daily data that you have and
+            you divide it by the total amount of days.</p>
+
+            <p>The formula for calculating the average return is described below:</p>
+
+            <p><img width="245" alt="schermafbeelding 2019-01-15 om 22 45 02" src="https://user-images.githubusercontent.com/44025022/51212008-72a6ff80-1917-11e9-973f-577853d94049.png"></p>
+
+            <p>Important is that when you use an average return you should use the same
+            time period in the calculation for the volatility.</p>
+
+            <p><strong>The variance</strong></p>
+
+            <p><strong>Step 3</strong></p>
+
+            <p>On this point we have got all the information to calculate the variance of a stock.</p>
+
+            <p>The formula for calculating the variance is described below:</p>
+
+            <p><img width="588" alt="schermafbeelding 2019-01-15 om 22 45 09" src="https://user-images.githubusercontent.com/44025022/51212021-82264880-1917-11e9-987b-642f2e1f2af5.png"></p>
+
+            <p><strong>The volatility</strong></p>
+
+            <p><strong>Step 4</strong></p>
+
+            <p>Now we can finally calculate the volatility of a stock.</p>
+
+            <p>NOTE: Once again it is highly important that we take the right Time
+            period.</p>
+
+            <p><img width="537" alt="schermafbeelding 2019-01-15 om 22 45 16" src="https://user-images.githubusercontent.com/44025022/51212031-8e120a80-1917-11e9-99c7-ef437bf61ae3.png"></p>
+
+            <p><strong>The volatility, daily, monthly and yearly</strong></p>
+
+            <p><strong>Step 5</strong></p>
+
+            <p>There are handy fomula's to calculate the volatility per month or year
+            once you have the daily volatility.</p>
+
+            <p>The formula's for calculating these volatilities are described below:</p>
+
+            <p><img width="788" alt="schermafbeelding 2019-01-15 om 22 45 30" src="https://user-images.githubusercontent.com/44025022/51212064-a84be880-1917-11e9-9d3e-5b013ebe3ef4.png"></p>
+
+            <p><strong>Created by:</strong></p>
+
+            <p><strong>Jerinca Vreugdenhil</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

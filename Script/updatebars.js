@@ -2,10 +2,6 @@
 
 function updateDataGraph(volDict, volas){
 
-console.log(volDict)
-
-console.log("second and more UPDATE BINS")
-
 // create yScale
 var yScale = d3.scaleLinear()
 	.domain([0, d3.max(volDict, function(d){return d.Volatility})])

@@ -1,6 +1,6 @@
-function createLineChart(hunderdDays, dates){
+function createLineChart(hunderdDays, dates, inputsearch){
 
-  console.log("first time LINE")
+  // console.log(hunderdDays, dates, inputsearch)
 
   // create yScale
   var yScale = d3.scaleLinear()
@@ -11,6 +11,8 @@ function createLineChart(hunderdDays, dates){
   var xScaleDate = d3.scaleBand()
     .domain(dates)
     .range([0, width]);
+
+    // console.log(dates)
 
   // create xScale
   var xScale = d3.scaleLinear()
@@ -32,6 +34,8 @@ function createLineChart(hunderdDays, dates){
   svg.append("g")
     .attr("class", "yaxis")
     .call(d3.axisLeft(yScale));
+
+  // console.log(xScaleDate)
             
   // add the xAxis
   svg.append("g")
@@ -82,5 +86,25 @@ function createLineChart(hunderdDays, dates){
     focus.append("text")
         .attr("x", 15)
         .attr("dy", ".31em");
+
+    svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .attr("font-family", "sans-serif")  
+        .style('fill', '#6d8891')
+        .style("text-decoration", "underline")  
+        .text("Closing Stock Prices past 100 days");
+
+    svg.append("text2")
+        .attr("x", (width / 3))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .attr("font-family", "sans-serif")  
+        .style('fill', '#6d8891')
+        .style("text-decoration", "underline")  
+        .text("Closing Stock Prices past 100 days");
 
   }
