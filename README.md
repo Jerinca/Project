@@ -1,6 +1,8 @@
 Jerinca Vreugdenhil. 
 Studentnumber: 12405965. 
 
+https://jerinca.github.io/Project/
+
 # Project Stock history & info 
 ## Problem statement. 
 
