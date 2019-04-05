@@ -174,6 +174,23 @@ set everything back to on line click.
 
 working on a bubble chart instead of world map. trying to update the barchart..
 
+# 6-03-19
+
+Created Bubble chart though weight of Stock within S&P 500 stock market index.
+
+# 18-03-19
+
+Barchart is now also updating. some minor details.
+
+# 20-03-19
+
+The graphs are updating also when you click on the bubble chart
+
+# 4-04-19
+
+Info page and calculation page. also added title. still working on some other details
+
+
 
 
 

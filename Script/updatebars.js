@@ -1,4 +1,7 @@
-// this file should update barchart
+// Student:       Jerinca vreugdenhil
+// Studentnumber: 12405965
+
+// this file updates the barchart
 
 function updateDataGraph(volDict, volas){
 
@@ -30,11 +33,7 @@ bars
 var text = d3.select("#barCh").selectAll(".textInVis").data(volDict);
 
 text.exit().remove();
-
 text.enter().append("text").attr("class", "textInVis");
-
-
-console.log("update")
 
 text
    	.transition().duration(250)
@@ -46,5 +45,4 @@ text
    	});
 
 bars.exit().remove();
-
-}
+};

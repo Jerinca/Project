@@ -1,3 +1,6 @@
+// Student:       Jerinca vreugdenhil
+// Studentnumber: 12405965
+
 // this function should create a barchart
 
 function createBarChart(volDict, volas){
@@ -5,8 +8,8 @@ function createBarChart(volDict, volas){
 var barPadding = 5.5;
 
 // set the dimensions and margins of the graph
-var margin = {top: 50, right: 20, bottom: 100, left: 40},
-    width = 400 - margin.left - margin.right,
+var margin = {top: 50, right: 20, bottom: 100, left: 160},
+    width = 500 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
           
 // append the svg object to the body of the page
@@ -65,14 +68,24 @@ var yAxis = d3.axisLeft(yScale)
 svg.append("g")
   	.attr("class", "yyaxis")
     .call(d3.axisLeft(yScale));
-          
+
+// text label for the y axis
+svg.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 120 - margin.left)
+    .attr("x",0 - (height / 2))
+    .attr("dy", "1em")
+    .style("text-anchor", "middle")
+    .text("Volatility in %")
+    .attr("font-family", "sans-serif")  
+    .style('fill', '#cda20b');
 
 // add the x Axis
 svg.append("g")
     .attr("transform", "translate(-10," + height + ")")
     .call(d3.axisBottom(xScale))
     .selectAll("text")
-    .style("font", "8px times") 
+    .style("font", "12px times") 
     .style("text-anchor", "end")
     .attr("dx", "-.8em")
     .attr("dy", ".15em")
@@ -123,7 +136,7 @@ svg.selectAll(".textInVis")
       return d.Volatility + "%";
    })
    .attr("x", function(d, i) {
-      return xScaleBin(i);
+      return xScaleBin(i );
    })
    .attr("y", function(d) {
       return yScale(d.Volatility);

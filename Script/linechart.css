@@ -1,3 +1,10 @@
+/*
+** Student:     Jerinca vreugdenhil
+** Studentnumber: 12405965
+
+** This is a Style sheet for the line chart
+*/
+
 .line {
     fill: none;
     stroke: #6d8891;
@@ -5,71 +12,25 @@
 }
 
 .yaxis text{
-      fill: none;
+    fill: none;
     stroke: #cda20b;
     stroke-width: 1;
 }
 
 .yaxis line {
-      fill: none;
+    fill: none;
     stroke: #6b3603;
     stroke-width: 3;
 }
 
 .axisRed path{
-  stroke: #6b3603;
-  stroke-width: 3;
+    stroke: #6b3603;
+    stroke-width: 3;
 }
 
 
 .xasis {
-       fill: none;
+    fill: none;
     stroke: #cda20b;
     stroke-width: 1;
-}
-  
-/*.overlay {
-  fill: none;
-  pointer-events: all;
-}*/
-
-/* Style the dots by assigning a fill and stroke */
-/*.dot {
-    fill: #ffab00;
-    stroke: #fff;
-}
-  
-  .focus circle {
-  fill: none;
-  stroke: steelblue;
-}
-*/
-.overlay {
-  fill: none;
-  pointer-events: all;
-}
-
-.focus circle {
-  fill: #F1F3F3;
-  stroke: #6F257F;
-  stroke-width: 5px;
-}
-  
-.hover-line {
-  stroke: #6F257F;
-  stroke-width: 2px;
-  stroke-dasharray: 3,3;
-}
-
-div.tooltip { 
-    position: absolute;     
-    text-align: center;     
-    width: 60px;          
-    height: 28px;         
-    padding: 2px;       
-    font: 12px sans-serif;    
-    background: lightsteelblue; 
-    border: 0px;    
-    border-radius: 8px;     
-    pointer-events: none;     
 }

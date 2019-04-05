@@ -5,16 +5,16 @@
 
 // set variables and margins
 var margin = {top: 50, right: 20, bottom: 100, left: 40},
-  width = 1140 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
+    width = 1140 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
           
 // append the svg object to a selection of the page
 var svg = d3.select("#svg").append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", 
-        "translate(" + margin.left + "," + margin.top + ")"); 
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", 
+          "translate(" + margin.left + "," + margin.top + ")"); 
 
 // keep track
 var counter = 0;
@@ -25,23 +25,32 @@ var inputSearch;
 // when window is being unloaded show
 window.onload = function() {
 
+// call 'sort'-function when radio button is clicked
+d3.select("#sorting-radio1").on("click", doeHonderd);
+d3.select("#sorting-radio2").on("click", doeTwintig);
+
+function doeHonderd() {
+  console.log("okeoke")
+
+}
+function doeTwintig(){
+  console.log("jaja")
+}
+
+// create the right space
 list = []
 dictionairy = {"children":[]}
 
-// console.log(dictionairy["children"])
-
 // load csv file to d3 v5    
 d3.csv('weights.csv')
-  .then(function(data) {
-
-    data.forEach(function(element){
-      var companyCompany = element["Company"]
-      var weigthsCompany = element["Weight"]
-      var symbolCompany = element["Symbol"]
-      dictionairy["children"].push({"Company": companyCompany, "Weight": Number(weigthsCompany), "Symbol": symbolCompany});
-
-    });
-
+    .then(function(data) {
+      data.forEach(function(element){
+        var companyCompany = element["Company"]
+        var weigthsCompany = element["Weight"]
+        var symbolCompany = element["Symbol"]
+        dictionairy["children"].push({"Company": companyCompany, "Weight": Number(weigthsCompany), "Symbol": symbolCompany});
+      });
+    // create bubble chart
     getBubbles(dictionairy)
   });
 
@@ -51,23 +60,21 @@ stringThree = "&interval=5min&apikey=DFYSSV5T3EZ9UW6E"
 
 // get starting page with s&p500 info
 requestTickerSP = stringOne + "MSFT" + stringThree
-
-// console.log(requestTickerSP)
 getData(requestTickerSP)
 
-// select search icon and on click get data
+// select search icon and on click get data input
 d3.select("#sic")
-  .on("click", function() {
-  inputSearch = d3.select("#sin").property("value");
-  console.log(inputSearch)
-  getData(inputSearch)    
-  });
+    .on("click", function() {
+    inputSearch = d3.select("#sin").property("value");
+    console.log(inputSearch)
+    getData(inputSearch)    
+    });
 
-
+// selecht search icon on enter and get data input
 $("#sin").keyup(function(event) {
-    if (event.keyCode === 13) {
-        $("#sic").click();
-    }
+  if (event.keyCode === 13) {
+    $("#sic").click();
+  }
 });
 
 $("#sic").click(function() {
@@ -97,53 +104,44 @@ function writeToJson(request){
 
   mydata = response;
 
-mydata.forEach(function(element){
-  var dailies = element["Time Series (Daily)"]
-  var hunderdDays = [];
-  var dates = [];
-  
-  // take each object and push as dictionairy
-  $.each(dailies, function(index, value) {
-    var closingPrice = value["4. close"]
-    hunderdDays.push({"Date": index, "Close": Number(closingPrice)});
-    dates.push(index)
-    }); 
+  mydata.forEach(function(element){
+    var dailies = element["Time Series (Daily)"]
+    var hunderdDays = [];
+    var dates = [];
+    var symbolDict = element["Meta Data"]["2. Symbol"];
 
-  // now we have the dates in the right follow up
-  hunderdDays.reverse();
-  dates.reverse();
+    // take each object and push as dictionairy
+    $.each(dailies, function(index, value) {
+      var closingPrice = value["4. close"]
+      hunderdDays.push({"Date": index, "Close": Number(closingPrice)});
+      dates.push(index)
+      }); 
 
-  // save info about volatilities
-  var infovol = calculateVolatility(hunderdDays, dates);
-  dictionairyVolatility = infovol[0];
-  volatilities = infovol[1];
+    // now we have the dates in the right follow up
+    hunderdDays.reverse();
+    dates.reverse();
 
-  // if it is the first time searching
-  if (counter == 0){
+    // save info about volatilities
+    var infovol = calculateVolatility(hunderdDays, dates);
+    dictionairyVolatility = infovol[0];
+    volatilities = infovol[1];
 
-    // create bar chart and line graph first time
-    createLineChart(hunderdDays, dates, inputSearch)
+    // if it is the first time searching
+    if (counter == 0){
 
-    // console.log(dictionairyVolatility, volatilities)
+      // create bar chart and line graph first time
+      createLineChart(hunderdDays, dates, symbolDict)
+      createBarChart(dictionairyVolatility, volatilities)
+      counter+=1;   
+    }
 
+    // second time searching update graphs
+    else {
 
-    createBarChart(dictionairyVolatility, volatilities)
-
-    counter+=1;   
-  }
-
-  // second time searching update graphs
-  else {
-
-    // update the line graph and barchart 
-    updateDataLine(hunderdDays, dates, inputSearch)
-
-    // console.log(dictionairyVolatility, volatilities)
-
-    updateDataGraph(dictionairyVolatility, volatilities)
-
-  };
-
+      // update the line graph and barchart 
+      updateDataLine(hunderdDays, dates, symbolDict)
+      updateDataGraph(dictionairyVolatility, volatilities)
+    };
   });
 }).catch(function(e){
     throw(e);

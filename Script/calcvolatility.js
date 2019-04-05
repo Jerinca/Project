@@ -1,3 +1,6 @@
+// Student:       Jerinca vreugdenhil
+// Studentnumber: 12405965
+
 // this file should calculates the volatility of a stock
 
 function calculateVolatility(hunderdDays, dates){
