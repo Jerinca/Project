@@ -1,7 +1,9 @@
+# Project Stock history & info 
+
 Jerinca Vreugdenhil. 
 Studentnumber: 12405965. 
+Course: Programmeerproject
 
-# Project Stock history & info 
 ## Problem statement. 
 
 Investing in stocks can be scary. Because you do not know what your chances are. 
