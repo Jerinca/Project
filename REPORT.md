@@ -1,4 +1,4 @@
-### Final Report
+# Final Report
 
 Jerinca Vreugdenhil. 
 Studentnumber: 12405965. 
@@ -12,7 +12,7 @@ The webpage I build contains a bubble chart, a line graph and a bar chart. These
 
 ## Technical Design
 
-## Files
+### Files
 
 ### HTML
 
@@ -32,7 +32,7 @@ There is a seperate D3 folder which contains the D3 folder and the sources neede
 
 ## Detailed Description
 
-HTML
+### HTML
 
 To work with some kind of grid in HTML I have been using Bootstrap. This way each visualisation has it's own place on the page by using rows and collums. The navigation bar at the top will stay in place where ever the user is going, this way it makes it easier for the user to navigate on the webpage. 
 
@@ -42,7 +42,7 @@ Under the same tab we see the bubble chart with the S&P500 market index. When th
 
 Note: there is a html element with an option to select stock prices form the past 20 years as well. Sadly I could not get this working. 
 
-JavaScript & main functions
+### JavaScript & main functions
 
 - window.onload = function() 
 
