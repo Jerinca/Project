@@ -45,21 +45,27 @@ There will be an map with an overvieuw of the companiess that are in the S&P500 
 
 
 ### About
+On this page the Invester can read what is being showed on the website and why. Also the Investor can see where the data is coming from. 
+
 <img width="1137" alt="Schermafbeelding 2019-04-15 om 12 08 01" src="https://user-images.githubusercontent.com/44025022/56124558-336c6700-5f77-11e9-94e3-5fcaad9d0731.png">
 
 
 ### Calculations
+On this page the Investor can see how we got to the calculations of the risk of a stock. The calculations are explained step by step. 
+
 <img width="1232" alt="Schermafbeelding 2019-04-15 om 12 08 16" src="https://user-images.githubusercontent.com/44025022/56124637-61ea4200-5f77-11e9-8ad2-a9093603beaa.png">
- 
-
-### data sources. 
-YAHOO \
-https://pypi.org/project/yahoo-finance/ \
-https://www.kaggle.com/camnugent/sandp500 \
 
 
-### external components. 
-To be agreed
+### Data sources. 
 
-### review of similar or related visualizations. 
-When you would visit https://www.portfoliovisualizer.com/examples, you see a few examples of how a stock is being presented. In my opinion this can be done better. 
+For this project real time stock data is being used. So the visualisation is always updated. 
+https://www.alphavantage.co
+
+For the bubble chart a dataset with the weight of the conpanies within the S&P500 is being used
+https://www.slickcharts.com/sp500
+
+
+### Plugins
+* Bootstrap
+* D3
+* jQuery
